@@ -1,0 +1,11 @@
+%html
+  %meta{ content: "text/html; charset=utf-8", http-equiv: "Content-Type" }
+  %head
+  %body{ ng-app: "appModule", ng-controller: "appController as appVM" }
+	-# Other peoples' stuff
+    %script{src: "bower_components/jquery/dist/jquery.min.js"}
+    %script{src: "bower_components/angular.js/angular.js"}
+    %script{src: "bower_components/angular.js/angular-route.min.js"}
+
+	-# My stuff
+    %script{src: "angular.module.js"}
