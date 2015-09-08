@@ -1,8 +1,13 @@
+//Super Useful! To play with an angular service in the browser console you can enlist the help of injector:
+//var serviceObject = angular.injector(['ng', 'appModule']).get('someService');
+
 (function () {
 	'use strict';
 
 	angular.module('appModule')
 		.factory('someService', someService);
+
+  someService.$inject = ['localStorageService'];
 
   function someService() {
 		return {

@@ -1,13 +1,16 @@
 (function () {
 	'use strict';
 
-	angular.module('appModule', ['ngRoute'])
+	angular.module('appModule', [
+    'ngRoute',
+    'LocalStorageModule'
+  ])
 		.config(configure)
 		.controller('appController', appController);
 
-    configure.$inject = ['$routeProvider'];
+    configure.$inject = ['$routeProvider', 'localStorageServiceProvider'];
 
-    function configure($routeProvider) {
+    function configure($routeProvider, localStorageServiceProvider) {
 //      $routeProvider.
 //        when('/insured-info', {
 //          templateUrl: 'partials/insured-info.html',
@@ -17,11 +20,17 @@
 //        otherwise({
 //          redirectTo: '/insured-info'
 //        });
+
+      //https://github.com/grevory/angular-local-storage
+      //For bookkeeping, I guess. Don't have to call setPrefix.
+      localStorageServiceProvider
+        .setPrefix('jordansApp')
+        .setStorageCookieDomain('');
     }
 
-    appController.$inject = ['$http', '$location'];
+    appController.$inject = ['$http', '$location', 'someService'];
 
-    function appController($http, $location) {
+    function appController($http, $location, someService) {
     }
 }());
 
